@@ -5,17 +5,23 @@
  */
 package com.franciscodadone.chatty.views;
 
-import com.franciscodadone.chatty.utils.Fonts;
+import com.franciscodadone.chatty.main.WindowManager;
+import com.franciscodadone.chatty.util.Fonts;
+import com.franciscodadone.chatty.util.ImageLoader;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author Usuario
+ * @author Francisco Dadone
  */
 public class AppFrame extends javax.swing.JFrame {
 
@@ -29,8 +35,8 @@ public class AppFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        OpacidadLogo = new javax.swing.JPanel();
+        RegisterForm = new javax.swing.JPanel();
         txtUsername = new javax.swing.JLabel();
         fieldUsername = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -43,30 +49,30 @@ public class AppFrame extends javax.swing.JFrame {
         SignUpBtn = new javax.swing.JButton();
         txtPassword1 = new javax.swing.JLabel();
         SignInBtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chatty");
         setBackground(new java.awt.Color(33, 35, 37));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0, 200));
-        jPanel1.setAlignmentX(0.0F);
-        jPanel1.setAlignmentY(0.0F);
+        OpacidadLogo.setBackground(new java.awt.Color(0, 0, 0, 200));
+        OpacidadLogo.setAlignmentX(0.0F);
+        OpacidadLogo.setAlignmentY(0.0F);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout OpacidadLogoLayout = new javax.swing.GroupLayout(OpacidadLogo);
+        OpacidadLogo.setLayout(OpacidadLogoLayout);
+        OpacidadLogoLayout.setHorizontalGroup(
+            OpacidadLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 676, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+        OpacidadLogoLayout.setVerticalGroup(
+            OpacidadLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 591, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(30, 33, 35));
-        jPanel2.setAlignmentX(0.0F);
-        jPanel2.setAlignmentY(0.0F);
+        RegisterForm.setBackground(new java.awt.Color(30, 33, 35));
+        RegisterForm.setAlignmentX(0.0F);
+        RegisterForm.setAlignmentY(0.0F);
 
         txtUsername.setBackground(new java.awt.Color(57, 113, 117));
         txtUsername.setForeground(new java.awt.Color(57, 113, 117));
@@ -121,22 +127,22 @@ public class AppFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout RegisterFormLayout = new javax.swing.GroupLayout(RegisterForm);
+        RegisterForm.setLayout(RegisterFormLayout);
+        RegisterFormLayout.setHorizontalGroup(
+            RegisterFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegisterFormLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RegisterFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPassword1)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(RegisterFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtEmail)
                         .addComponent(txtUsername)
                         .addComponent(jSeparator1)
                         .addComponent(fieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(RegisterFormLayout.createSequentialGroup()
                             .addComponent(txtAlreadyAcc)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(SignInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -145,9 +151,9 @@ public class AppFrame extends javax.swing.JFrame {
                         .addComponent(SignUpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        RegisterFormLayout.setVerticalGroup(
+            RegisterFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegisterFormLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(txtUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -169,37 +175,37 @@ public class AppFrame extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(SignUpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegisterFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAlreadyAcc)
                     .addComponent(SignInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setBackground(new java.awt.Color(33, 35, 37));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\Chatty\\src\\res\\icons\\appicon_512.png")); // NOI18N
+        Logo.setBackground(new java.awt.Color(33, 35, 37));
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/appicon_512.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(OpacidadLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(RegisterForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(28, 28, 28)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 1021, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(61, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(OpacidadLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(RegisterForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                    .addComponent(Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -211,21 +217,24 @@ public class AppFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_SignUpBtnActionPerformed
 
     private void SignInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInBtnActionPerformed
-        // TODO add your handling code here:
+
+        WindowManager.change(new LoginPanel());
+        
     }//GEN-LAST:event_SignInBtnActionPerformed
 
-   
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel Logo;
+    public static javax.swing.JPanel OpacidadLogo;
+    public static javax.swing.JPanel RegisterForm;
     private javax.swing.JButton SignInBtn;
     private javax.swing.JButton SignUpBtn;
     private javax.swing.JTextField fieldEmail;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUsername;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

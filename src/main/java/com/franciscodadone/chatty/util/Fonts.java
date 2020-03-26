@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.franciscodadone.chatty.utils;
+package com.franciscodadone.chatty.util;
 
 import java.awt.Font;
 import java.io.BufferedInputStream;
