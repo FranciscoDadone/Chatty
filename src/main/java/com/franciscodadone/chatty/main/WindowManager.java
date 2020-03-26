@@ -6,7 +6,6 @@
 package com.franciscodadone.chatty.main;
 
 import com.franciscodadone.chatty.views.AppFrame;
-import javax.swing.JPanel;
 
 /**
  *
@@ -14,13 +13,26 @@ import javax.swing.JPanel;
  */
 public class WindowManager {
     
-    public static void change(JPanel newPanel){
-        AppFrame.Logo.setVisible(false);
-        AppFrame.OpacidadLogo.setVisible(false);
-        AppFrame.RegisterForm.setVisible(false);
+    public static void change(String newPanel){
         
-        new AppFrame().add(newPanel);
+        if(newPanel.equals("login")) {
+            System.out.println("Cambiendo al login...");
+            appframe.RegisterForm.setVisible(false);
+            appframe.LoginForm.setVisible(true);
+        } else if(newPanel.equals("register")) {
+            System.out.println("Cambiendo al registro...");
+            appframe.LoginForm.setVisible(false);
+            appframe.RegisterForm.setVisible(true);
+        }
         
     }
     
+    public static void initApp() {
+        
+        appframe.init();
+        
+    }
+    
+    
+    private static AppFrame appframe = new AppFrame();
 }

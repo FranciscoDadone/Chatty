@@ -9,13 +9,13 @@ import com.franciscodadone.chatty.views.AppFrame;
 
 /**
  *
- * @author Usuario
+ * @author Francisco Dadone
  */
 public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AppFrame().setVisible(true);
+                WindowManager.initApp();
             }
         });
     }
